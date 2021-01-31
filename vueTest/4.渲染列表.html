@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+   <ul>
+       <li v-for="list in todos"> 
+           {{list.text}}
+       </li>
+   </ul>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            todos:[
+            {text:"1st"},
+            {text:"2nd"},
+            {text:"3rd"}
+            ]
+            }
+        
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue的render方法说明</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <children>
+        <span slot="first" @click="tobrknow">12345</span>
+        <span slot="second">456789</span>
+        <!--上面这行不会显示-->
+    </children>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        methods:{
+            tobrknow:function(){
+                console.log("It is the parents's methods")
+            }
+        },
+        components: {
+            children: {    //这个无返回值，不会继续派发
+                template: "<button><slot name='first'></slot>为了明确作用范围，<slot name='second'></slot>所以使用button标签</button>"
+            }
+        }
+    });
+</script>
+</body>
+</html>

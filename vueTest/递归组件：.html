@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue的render方法说明</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+   <ul id="app">
+    <li>
+        {{b}}
+    </li>
+    <my-template v-if="a" :a="a.a" :b="a.b"></my-template>
+</ul>
+<script>
+    Vue.component("myTemplate", {
+        template: '<ul><li>{{b}}</li><my-template v-if="a" :a="a.a" :b="a.b"></my-template></ul>',
+        props: ["a", "b"]
+    })
+    var data = {
+        a: {
+            a: {
+                a: 0,
+                b: 3
+            },
+            b: 2
+        },
+        b: 1
+    }
+    var vm = new Vue({
+        el: '#app',
+        data: data,
+        methods: {
+            todo: function () {
+                this.test += "!";
+                console.log(this.test);
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

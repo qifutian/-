@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue的render方法说明</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="toknowchildren">点击让子组件显示</button>
+    <table>
+        <tr>
+            <td>索引</td>
+            <td>ID</td>
+            <td>说明</td>
+        </tr>
+        <tr is="the-tr" v-for="i in items" v-bind:id="i"></tr>
+    </table>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            items: [1, 2, 3, 4],
+        },
+        methods: {
+            toknowchildren: function () {   //切换组件显示
+                console.log(this.$children);
+            }
+        },
+        components: {
+            theTr: { //第一个子组件
+                template: "<tr>" +
+                "<td>index</td>" +
+                "<td>{{id}}</td>" +
+                "<td>这里是子组件</td>" +
+                "</tr>",
+                props: ['id']
+            }
+        }
+    });
+</script>
+
+
+</body>
+</html>

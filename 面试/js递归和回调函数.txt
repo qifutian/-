@@ -1,0 +1,65 @@
+递归
+定义：
+递归函数就是在函数体内调用本函数；
+
+递归函数的使用要注意函数终止条件避免死循环；
+function sum(num){
+  if(num<=1){
+    return 1;
+  }else{
+    return num+sum(num-1);
+  }
+}
+
+console.log(sum(5));//15
+
+用递归输出对象里包含的所有属性值（包括对象里的子孙对象）
+var obj = {
+    a:{
+        name:"john",
+        age:26,
+        sex:"male",
+        child:{
+            firstChild:"mak",
+            laseChild:"loy"
+        }
+    },
+
+    b:{
+        name:"joe", 
+        age:28, 
+        sex:"female", 
+        child:{
+            firstChild:"bill", 
+            secondChild:"ruth", 
+            laseChild:"yoki"
+        }
+    }
+};
+
+function getObjValue(obj){
+    for(var k in obj){
+        if(typeof obj[k] !== "object"){
+            console.log(obj[k]); //递归出口
+        }else{
+            getObjValue(obj[k]); //函数调用函数自身
+        }
+    }
+};
+
+getObjValue(obj);
+
+
+
+回调函数
+接收一个函数作为参数，当本次函数执行完之后，调用传入的参数函数
+
+
+function getInput(options, callback){
+    //确保callback是一个函数   
+    if(typeof callback === "function"){
+        //调用它，既然我们已经确定了它是可调用的
+        callback(options);
+    }
+}
+

@@ -1,0 +1,193 @@
+@import "src/less/_common.less";
+.edit-system-func-modal{
+    .ant-modal-content .ant-modal-body{
+        padding-top: 30px !important;
+        padding-bottom: 22px !important;
+        #permission-configuration-func-modal>.ant-form-item:last-child{
+            margin-bottom: 0;
+        }
+        #permission-configuration-func-modal{
+            width:100%;
+            .ant-space{
+                margin-left: 0;
+            }
+            .ant-space-item{
+                margin-right: 0 !important;
+            }
+            .ant-form-item {
+                margin-bottom: 15px;
+                margin-right: 8px;
+                .ant-form-item-label{
+                    width: 75px;
+                }
+            }
+            .add-link{
+                cursor: pointer;
+                color: @common-btn-blue;
+            }
+            .first-column{
+                width:100px;
+            }
+            .second-column{
+                width:228px;
+            }
+            .third-column{
+                width:235px;
+            }
+            .fourth-column{
+                line-height: 32px;
+                padding:0 5px;
+            }
+            #permission-configuration-func-modal_name{
+                width: 100px;
+            }
+            #permission-configuration-func-modal_introduction{
+                width: 228px;
+            }
+            .add-task-btn{
+                width: 336px;
+            }
+            .common-link{
+                width: auto;
+                height: 30px;
+            }
+        }
+    }
+}
+.edit-system-role-modal{
+    .modal-content{
+        .ant-form-item{
+            margin-bottom:7px;
+            .role-select{
+                width:120px;
+            }
+            .ant-input{
+                width:100%;
+            }
+        }
+        width:100%;
+        .Subtitle{
+            line-height: 28px;
+        }
+        .left-tree-border{
+            height:250px;
+            overflow:hidden;
+            border:1px solid rgba(0, 0, 0, 0.15);
+            .tree-link{
+                cursor: pointer;
+                color: @common-btn-blue;
+            }
+            .left-tree-border-title{
+                height:40px;
+                line-height: 40px;
+                font-size: 14px;
+                font-weight: 400;
+                color: #464444;
+                padding:0 15px;
+                border-bottom:1px solid rgba(0, 0, 0, 0.15);
+            }
+            .left-tree-parent{
+                height:210px;
+                overflow-y:auto;
+            }
+        }
+        .right-tree-border{
+            height:250px;
+            overflow:auto;
+            overflow:hidden;
+            border-top:1px solid rgba(0, 0, 0, 0.15);
+            border-right:1px solid rgba(0, 0, 0, 0.15);
+            border-bottom:1px solid rgba(0, 0, 0, 0.15);
+            .right-tree-border-title{
+                height:40px;
+                line-height: 40px;
+                font-size: 14px;
+                font-weight: 400;
+                color: #464444;
+                padding-left: 15px;
+                border-bottom:1px solid rgba(0, 0, 0, 0.15);
+                // max-width: 177px;
+                overflow: hidden;
+            }
+            .right-tree-parent{
+                overflow: hidden;
+                height:210px;
+                overflow-y:auto;
+            }
+        }
+        .ant-tree{
+            padding:14px 0;
+        }
+    }
+}
+.edit-system-user-modal{
+    .modal-content{
+        width:100%;
+        .select-user-edit-form{
+            .ant-form-item{
+                margin-bottom: 14px;
+                .select-user{
+                    width:220px;
+                }
+            }
+        }
+        .select-user-form{
+            padding-bottom: 30px;
+            .ant-form-item{
+                margin-bottom: 0;
+                .ant-form-item-label > label{
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #464444;
+                }
+                .select-user{
+                    width:220px;
+                }
+            }
+        }
+    }
+    .common-treeSelect-dropdown{
+        .tree-select-title{
+            font-size: 14px;
+            font-weight: 400;
+            color: #464444;
+            .user-name-holder{
+                font-size: 12px;
+                font-weight: 400;
+                color: #807F7F;
+                margin-left: 10px;
+            }
+        }
+    }
+    .ant-select-selector{
+        .ant-select-selection-item{
+            .user-name-holder{
+                display: none;
+            }
+        }
+    }
+}
+.system-permission-configuration{
+    .system-permission-configuration-body{
+        .table-content{
+            border: 1px solid #E7E7E7;
+            padding: 10px;
+            background-color: #FFFFFF;
+            .edit-link{
+                cursor: pointer;
+                color: @common-btn-blue;
+                text-decoration: underline;
+                font-weight: 600;
+                margin: 0 5px;
+            }
+        }
+    }
+}
+.edit-system-enable-list-modal{
+    .enadble-list-content-p{
+        font-size: 16px;
+        font-weight: 600;
+        color: #4C4949;
+        line-height: 30px;
+    }
+}

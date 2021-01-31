@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+    {{{html}}}
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data: {
+            html:"<span>span</span>"
+        }
+    })
+</script>
+<script>
+    function load() {
+        vm.$mount("#app");
+    }
+</script>
+
+</body>
+</html>

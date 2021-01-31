@@ -1,0 +1,134 @@
+.alertup{
+  .ant-modal-footer{
+    text-align: center;
+  }
+  .ant-table-content{
+    height: auto;
+    max-height: 700px;
+    overflow-y: scroll;
+  }
+}
+.alertUp {
+  
+  .alert-con {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    z-index: 999;    
+    background: #12121B;
+    opacity: 0.74;
+  }
+  .alert-context {
+    background-color: #fff;
+    min-height: 256px;
+    width: 400px;
+    height: auto;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    margin: 15% auto ;
+     .alert-content-title {
+        text-align: left;
+        text-indent: 10px;
+        color: #333;
+        font-size: 24px;
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 1px solid #A6A8B0;
+        display: flex;
+        .title-left{
+          height: 20px;
+          font-size: 18px;
+          font-family: PingFangSC-Semibold, PingFang SC;
+          font-weight: 600;
+          color: #3C3C58;
+          flex: 2;
+          margin-left: 10px;
+        }
+        .title-right{
+          flex: 1;
+          height: 20px;
+          text-align: right;
+          font-size:26px;
+          color: #999999;
+          margin-right: 20px;
+          margin-top: -5px;
+          cursor: pointer;
+        }
+      }
+       .alert-content-content{
+          color: #333;
+          font-size: 16px;
+          width: 275px;
+          margin: 0 auto;
+          margin-top: 20px;
+          .downa{
+            .anticon{
+              color: #527FFB;
+            }
+            .ant-btn > .anticon + span, .ant-btn > span + .anticon{
+              margin-left: 0;
+            }
+            .ant-upload-list-item-name{
+              color: #2A5FF1;
+            } 
+            .ant-upload-select-text{
+              color: #595959;
+              .ant-btn-block{
+                text-align: left;
+                .anticon-upload{
+                  float: right;
+                }
+              }
+              .anticon-upload {
+                color: #595959;
+                margin-top: 3px;
+              }
+            }
+            .anticon-paper-clip{
+              color:#000000;
+            } 
+          }
+          .ant-upload-list{
+            margin-left: 10px;
+          }
+          .ant-tooltip{
+            display: none;
+          }
+          .ant-upload{
+            width: 250px;
+          }
+      }
+       .alert-content-content>div{
+        color: #333;
+        margin: 3px 15px;
+      }
+       .alert-content-content>div b{
+        margin-right: 25px;
+      }
+      .downurl{
+        text-decoration: underline;
+      }
+       .comfirm {
+        line-height: 30px;
+        text-align: center;
+        font-size: 20px;
+        color: #666;
+        margin-right: 10px;
+        margin-top: 42px;
+        .ant-btn{
+            margin: 5px;
+            width: 120px;
+        }
+        .cancelbtn{          
+          border-radius: 2px;
+          border: 1px solid #527FFB;
+          margin-left: 20px;
+          color: #527FFB;
+        }
+      }
+  }
+
+}
+

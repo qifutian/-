@@ -1,0 +1,125 @@
+.data-sellall{
+    .common-breadcrumb{
+        position: relative;
+        margin-bottom: 14px;
+        .import{
+            position: absolute;
+            top: -7px;
+            right: 128px;
+        }
+        .add{
+            position: absolute;
+            top: -7px;
+            right: 0;
+        }
+        .common-new{
+            position: absolute;
+            top: -7px;
+            right: 0;
+            span{
+                padding-left: 7px;
+            }
+        }
+    }
+}
+
+
+.data-sellall-upload{
+    .action{
+        margin-bottom: 14px;
+        button{
+            margin-right: 14px;
+        }
+        .upload-btn{
+            margin-right: 14px;
+        }
+    }
+    .description{
+        color: #797981;
+        margin-bottom: 14px;
+    }
+}
+
+.add-activity-modal{
+    .common-input{
+        width: 220px;
+        height: 32px;
+    }
+    .ant-modal-content{
+        width: 100% !important;
+        .ant-modal-body{
+            padding-bottom: 0 !important;
+        }
+        .modal-content{
+            width: 100%;
+            .ant-row{
+                display: flex;
+                align-items: center;
+                margin-bottom: 14px;
+                &.has-error{
+                    margin-bottom: 0;
+                }
+                &.activity-type-error{
+                    margin-bottom: 0;
+                }
+                .ant-col-8{
+                    text-align: right;
+                }
+                .common-select{
+                    width: 220px;
+                }
+                .order-time{
+                    position: relative;
+                    .common-error{
+                        position: absolute;
+                        right: 40px;
+                        top:20px;
+                    }
+                }
+                .activity-name{
+                    white-space: nowrap;
+                }
+                .activity-date{
+                    margin-bottom: auto;
+                }
+                .activity-desc-content{
+                    display: flex;
+                    .common-error{
+                        white-space: nowrap;
+                    }
+                }
+                .activity-pickers{
+                    .shanshu-anticon{
+                        color: #AAB5C0;
+                        font-size: 24px;
+                        margin-left: 10px;
+                        cursor: pointer;
+                    }
+                    .common-date{
+                       margin-bottom: 14px;
+                       .ant-picker-range-separator{
+                            padding: 0 1px;
+                       }
+                    }
+
+                }
+                .activity-desc{
+                    margin-bottom: auto;
+                    margin-top: 5px;
+                }
+                &.row-pickers{
+                    margin-bottom: 0;
+                }
+
+                &.type-row{
+                    .common-input{
+                        width: 40px;
+                        margin-left: 5px;
+                        margin-right: 5px;
+                    }
+                }
+            }
+
+        }
+    }
+}

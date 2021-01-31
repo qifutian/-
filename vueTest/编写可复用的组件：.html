@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue的render方法说明</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+   <p>这是第一个父组件</p>
+   <widget :the-value="test" @some="todo">
+       <span>【第一个父组件插入的内容】</span>
+   </widget>
+</div>
+<div id="app2">
+    <p>这是第二个父组件</p>
+    <widget @some="todo"> </widget>
+</div>
+<script>
+    Vue.component("widget",{
+        tempalte:"<button @click='dosomething'><slot></slot>这是一个复用的组件，点击他{{theValue}}</button>",
+        methods:{
+            dosomething:function(){
+                this.$meit("some");
+            }
+        },
+        events:{
+            some:function(){
+                console.log('widget click')
+            }
+        },
+        props:['theValue']
+    })
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            test:"test"
+        },
+        methods:{
+            todo:function(){
+                console.log("这是第一个父组件")
+        }
+    }
+       });
+    var vm_other = new Vue({
+        el:"#app2",
+        data:{
+            name:"first"
+        },
+        methods:{
+            todo:function(){
+                console.log("这是另外一个父组件")
+            }
+        }
+    })
+</script>
+
+
+</body>
+</html>

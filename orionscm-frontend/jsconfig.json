@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "baseUrl": "src",
+    "paths": {
+      "components/*": ["./components/*"],
+      "containers/*": ["./containers/*"],
+      "common/*": ["./common/*"],
+      "assets/*": ["./assets/*"],
+      "reducers/*": ["./reducers/*"],
+      "image/*": ["./image/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}

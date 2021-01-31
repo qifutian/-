@@ -1,0 +1,6 @@
+getType([ ]) 返回 ‘array’
+getType(2) 返回 ‘number’
+			function getType(obj){
+			    var s  = Object.prototype.toString.call(obj);
+			    return s.slice(s.indexOf(" ")+1,s.length-1).toLowerCase();
+			}

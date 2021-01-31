@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO</title>
+    <script src="vue.min.js"></script>
+    <style type="text/css">
+        .box{
+            width: 100px;
+            height: 100px;
+            border:1px solid red;
+            display: inline-block;
+            }
+            .mytran-transition{
+                transition: all 0.3s ease;
+                background-color: greenyellow;
+            }
+            .mytran-enter,.mytran-leave{
+                height: 0;
+                width: 0;
+            }
+    </style>
+</head>
+<body>
+   <div id="app">
+       <button @click="change">
+       点击随机隐藏和显示
+       </button>    
+       <br/>    
+       <div class="box" v-if="box_1" transition="mytran">
+       1
+       </div>    
+       <div class="box" v-if="box_2" transition="mytran">
+       2
+       </div>    
+       <div class="box" v-if="box_3" transition="mytran">
+        3
+       </div> 
+   </div>
+   <script>
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            box_1:true,
+            box_2:true,
+            box_3:true,
+        },
+        methods:{
+            change:function(){
+                for(var i=1;i<4;i++){
+                    this['box_'+i]=Math.random()>0.5?true:false
+                }
+            }
+        }
+    })
+    setInterval(vm.change,300);
+   </script>
+</body>
+</html>

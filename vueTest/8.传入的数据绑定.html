@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+  {{a}}
+  <button onclick="add()">+1</button>
+</div>
+<script>
+    var obj={a:1}
+    new Vue({
+        el: '#app',
+        data: obj
+    })
+    function add(){
+        obj.a++;
+    }
+</script>
+</body>
+</html>

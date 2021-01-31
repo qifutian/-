@@ -1,0 +1,1 @@
+export let baseURI = process.env.NODE_ENV == 'development' ? '/' : '/';

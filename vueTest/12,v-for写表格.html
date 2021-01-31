@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO</title>
+    <script src="vue.min.js"></script>
+    <style type="text/css">
+        table{
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-left: 1px solid #888;
+            border-top: 1px solid #888;
+            background: #efefef;
+        }
+        tr,td{
+            border-right: 1px solid #888;
+            border-bottom: 1px solid #888;
+            padding: 5px 15px;
+        }
+        th{
+            font-weight: bold;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="app">
+  <button onclick="load()">点击挂载表格</button>
+</div>
+<script>
+    var obj={
+          grid: [
+            {id: "ID", name: "名字", description: "描述", clickButton: "点击事件"},
+            {id: "1", name: "a", description: "amorous", clickButton: "点击弹窗"},
+            {id: "2", name: "b", description: "beautiful", clickButton: "点击弹窗"},
+            {id: "3", name: "c", description: "clever", clickButton: "点击弹窗"},
+            {id: "4", name: "d", description: "delicious", clickButton: "点击弹窗"},
+        ]
+    }
+    var vm=new Vue({
+        data:obj,
+        template:`<table>
+        <tr v-for="row in grid">
+        <td>{{row.id}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.description}}</td>
+        <td><button v-on:click="alert($index)">{{row.clickButton}}</button></td>
+        </tr>
+        </table>
+        `,
+        methods:{
+            alert:function(index){
+              alert('该行是第'+index+"行")
+            }
+        }
+    })
+    function load(){
+        vm.$mount("#app");
+    }
+</script>
+</body>
+</html>

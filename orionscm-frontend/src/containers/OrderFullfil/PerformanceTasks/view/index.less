@@ -1,0 +1,135 @@
+@import "src/less/_common.less";
+.order-fullfil-performance-tasks{
+    .implementation-work{
+        box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.08);
+        -moz-box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.08);
+        -webkit-box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.08);
+        .order-fullfil-implementation-work-steps{
+            background-color: #FFFFFF;
+            // height: 350px;
+            padding: 25px 50px;
+            position: relative;
+            min-width: 1060px;
+            .implementation-work-steps-row{
+                box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.08), 0px 3px 8px 0px rgba(0, 0, 0, 0.08);
+                -moz-box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.08), 0px 3px 8px 0px rgba(0, 0, 0, 0.08);
+                -webkit-box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.08), 0px 3px 8px 0px rgba(0, 0, 0, 0.08);
+                position: absolute;
+                top: 25px;
+                left: 50px;
+                right: 50px;
+                bottom: 25px;
+                .step-func-col{
+                    background: #EFF1F6;
+                }
+                .step-dist-col{
+                    background: #F8F9FC;
+                }
+                .step-tran-col{
+                    background: #EFF1F6;
+                }
+            }
+            .implementation-work-steps{
+                padding-top: 25px;
+                .ant-steps-label-vertical .ant-steps-item-content{
+                    text-align: left;
+                    padding-left: 40px;
+                    width:100%;
+                    padding-right: 40px;
+                    .ant-steps-item-title{
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #464444;
+                        .title-link{
+                            cursor: pointer;
+                            color: @common-btn-blue;
+                            text-decoration: underline;
+                            font-weight: 600;
+                        }
+                        .implementation-work-steps-subtitle{
+                            margin-left: 15px;
+                            font-size: 14px;
+                            font-weight: 400;
+                            color: #464444;
+                            text-decoration: none;
+                        }
+                    }
+                    .ant-steps-item-description{
+                        padding-top: 36px;
+                    }
+                }
+                .step-func{
+                    flex:7 1;
+                    -ms-flex: 7 1;
+                    .implementation-work-steps-subtitle-order{
+                        padding-bottom: 25px;
+                        .order-title{
+                            font-size: 14px;
+                            font-weight: 400;
+                            color: #464444;
+                        }
+                        .order-text{
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: #4C4949;
+                        }
+                    }
+                }
+                .step-dist{
+                    flex:10 1;
+                    -ms-flex: 10 1;
+                    .step-dist-title{
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #464444;
+                        padding-bottom: 8px;
+                        border-bottom: 1px solid rgba(0,0,0,.08)
+                    }
+                    .step-dist-text{
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #464444;
+                        line-height: 38px;
+                    }
+                }
+                .step-tran{
+                    flex:7 1;
+                    -ms-flex: 7 1;
+                    .step-tran-title{
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #464444;
+                        padding-bottom: 8px;
+                        border-bottom: 1px solid rgba(0,0,0,.08)
+                    }
+                    .step-tran-text{
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #464444;
+                        line-height: 38px;
+                    }
+                }
+            }
+        }
+    }
+    .performance-task-details{
+        .performance-task-details-table{
+            border: 1px solid #E7E7E7;
+            border-top-width: 0;
+            background-color: #FFFFFF;
+            padding: 10px;
+            .table-link{
+                cursor: pointer;
+                color: #2A5FF1;
+                text-decoration: underline;
+                font-weight: bold;
+                margin: 5px;
+            }
+            .common-link{
+                width: auto;
+                height: auto;
+                padding: 0 5px;
+            }
+        }
+    }
+}

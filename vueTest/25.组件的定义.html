@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+</div>
+<div id="app2">
+</div>
+<script>
+    var obj = {btn: "123"};
+    var vm = new Vue({
+        el: '#app',
+        template: "<add-button></add-button>",
+        components: {
+            "add-button": {
+                template: "<button>这是一个按钮{{btn}}</button>",
+                data: function () {
+                    return obj;
+                }
+            }
+        }
+    });
+ 
+    obj.btn = "456";
+    var vm2 = new Vue({
+        el: '#app2',
+        template: "<add-button></add-button>",
+        components: {
+            "add-button": {
+                template: "<button>这是一个按钮{{btn}}</button>",
+                data: function () {
+                    return obj;
+                }
+            }
+        }
+    });
+</script>
+
+
+</body>
+</html>

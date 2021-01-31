@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+   <table>
+   	<tr>
+   		<td>a</td>
+   		<td>b=a+1</td>
+   	</tr>
+   	<tr>
+   		<td>{{a}}</td>
+   		<td>{{b}}</td>
+   	</tr>
+   </table>
+   <button @click="add">a = a+1</button>
+</div>
+<script>
+    var vm=new Vue({
+    	el:"#app",
+    	data:{
+    		a:1
+    	},
+    	methods:{
+    		add:function(){
+    			this.a++;
+    		}
+    	},
+    	computed:{
+    		b:function(){
+    			return this.a+1;
+    		}
+    	}
+    })
+</script>
+</body>
+</html>

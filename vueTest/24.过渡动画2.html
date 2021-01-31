@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO</title>
+    <script src="vue.min.js"></script>
+    <style type="text/css">
+        .box{
+            width: 100px;
+            height: 100px;
+            border:1px solid red;
+            display: inline-block;
+            }
+            .mytran-transition{
+                transition: all 0.3s ease;
+                background-color: greenyellow;
+            }
+            .mytran-enter,.mytran-leave{
+                height: 0;
+                width: 0;
+            }
+    </style>
+</head>
+<body>
+   <div id="app">
+       <button @click="change">
+       点击随机隐藏和显示
+       </button>    
+       <br/>    
+       <div class="box animated" v-if="box" transition="bounce">1</div>
+   </div>
+   <script>
+    Vue.transition("bounce",{
+      enterClass:'bounceInLeft',
+      leaveClass:'bounceOutRight'
+    })
+    var vm=new Vue({
+        el:"#app",
+        data:{
+           box:true
+        },
+        methods:{
+            change:function(){
+              this.box=!this.box;
+            }
+        }
+    })
+   </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+var number = 50;
+var obj = {
+      number:2,
+      getNum:function(){
+          var number = 6
+          return this.number
+      }
+}
+console.log(obj.getNum())//2 this指的是obj
+console.log(obj.getNum.call())//50  如果传入null也是50  this指的是windows
+console.log(obj.getNum.call({number:7}))//7  this的当前传入的对象

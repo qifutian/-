@@ -1,0 +1,208 @@
+.control-tower-order-board{
+    .control-tower-order-status-table{
+        p { 
+            margin: 0;
+        }
+        background:rgba(255,255,255,1);
+        border:1px solid rgba(231,231,231,1);
+        border-top-width: 0;
+        .order-status-table-body{
+            padding:35px 45px;
+            .ant-table-content{
+                .ant-table-thead > tr > th, .ant-table-tbody > tr > td{
+                    padding:0;
+                }
+                .ant-table-tbody > tr > td{
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+                .title-column{
+                    background:rgba(240, 240, 240, .5);
+                }
+                .odd-column{
+                    background: #F8F9FC;
+                }
+                .even-column{
+                    background: #EFF1F6;
+                }
+                .secondary-title{
+                    background: #F0F0F0;
+                    padding: 10px;
+                    margin: 1px 0;
+                }
+                @color: "EFB1A5", "9885E9", "F7CD79", "83B7F1", "F8F9FC", "9BD0CC", "E5B8E0", "6199E7", "E9C8A2";
+                each(@color, {
+                    @classValue: e(@value);
+                    .table-border-bot-@{classValue} {
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #464444;
+                        box-sizing: border-box;
+                        padding: 21px 16px;
+                        border-bottom: 8px solid ~"#@{classValue}";
+                    }
+                });
+            }
+        }
+    }
+    .control-tower-order-status-statistics-table{
+        padding:20px 45px;
+        background-color: #FFFFFF;
+        border:1px solid rgba(231,231,231,1);
+        border-top-width: 0;
+        // .order-status-statistics-table_body{
+            // padding:5px 0;
+        // }
+        .ant-table-content{
+            .ant-table-thead > tr > th{
+                padding:21px 16px;
+            }
+            .ant-table-tbody > tr > td{
+                // padding:10px 16px;
+                .totalNum{
+                    font-size: 24px;
+                    line-height:32px;
+                }
+            }
+            .title-column{
+                background:rgba(240, 240, 240, .5);
+            }
+            .odd-column{
+                background: #F8F9FC;
+            }
+            .even-column{
+                background: #EFF1F6;
+            }
+            .secondary-title{
+                background: #F0F0F0;
+                padding: 10px;
+                margin: 1px 0;
+            }
+        }
+    }
+}
+// .data-sellall{
+//     .common-breadcrumb{
+//         position: relative;
+//         margin-bottom: 14px;
+//         .import{
+//             position: absolute;
+//             top: -7px;
+//             right: 128px;
+//         }
+//         .add{
+//             position: absolute;
+//             top: -7px;
+//             right: 0;
+//         }
+//         .common-new{
+//             position: absolute;
+//             top: -7px;
+//             right: 0;
+//             span{
+//                 padding-left: 7px;
+//             }
+//         }
+//     }
+// }
+
+
+// .data-sellall-upload{
+//     .action{
+//         margin-bottom: 14px;
+//         button{
+//             margin-right: 14px;
+//         }
+//         .upload-btn{
+//             margin-right: 14px;
+//         }
+//     }
+//     .description{
+//         color: #797981;
+//         margin-bottom: 14px;
+//     }
+// }
+
+// .add-activity-modal{
+//     .common-input{
+//         width: 220px;
+//         height: 32px;
+//     }
+//     .ant-modal-content{
+//         width: 100% !important;
+//         .ant-modal-body{
+//             padding-bottom: 0 !important;
+//         }
+//         .modal-content{
+//             width: 100%;
+//             .ant-row{
+//                 display: flex;
+//                 align-items: center;
+//                 margin-bottom: 14px;
+//                 &.has-error{
+//                     margin-bottom: 0;
+//                 }
+//                 &.activity-type-error{
+//                     margin-bottom: 0;
+//                 }
+//                 .ant-col-8{
+//                     text-align: right;
+//                 }
+//                 .common-select{
+//                     width: 220px;
+//                 }
+//                 .order-time{
+//                     position: relative;
+//                     .common-error{
+//                         position: absolute;
+//                         right: 40px;
+//                         top:20px;
+//                     }
+//                 }
+//                 .activity-name{
+//                     white-space: nowrap;
+//                 }
+//                 .activity-date{
+//                     margin-bottom: auto;
+//                 }
+//                 .activity-desc-content{
+//                     display: flex;
+//                     .common-error{
+//                         white-space: nowrap;
+//                     }
+//                 }
+//                 .activity-pickers{
+//                     .shanshu-anticon{
+//                         color: #AAB5C0;
+//                         font-size: 24px;
+//                         margin-left: 10px;
+//                         cursor: pointer;
+//                     }
+//                     .common-date{
+//                        margin-bottom: 14px;
+//                        .ant-picker-range-separator{
+//                             padding: 0 1px;
+//                        }
+//                     }
+
+//                 }
+//                 .activity-desc{
+//                     margin-bottom: auto;
+//                     margin-top: 5px;
+//                 }
+//                 &.row-pickers{
+//                     margin-bottom: 0;
+//                 }
+
+//                 &.type-row{
+//                     .common-input{
+//                         width: 40px;
+//                         margin-left: 5px;
+//                         margin-right: 5px;
+//                     }
+//                 }
+//             }
+
+//         }
+//     }
+// }

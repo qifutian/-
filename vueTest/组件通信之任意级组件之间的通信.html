@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO</title>
+    <script src="vue.min.js"></script>
+    <style type="text/css">
+        .green{
+            background-color: green
+        }
+        .red{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <comp1></comp1>
+    <comp2></comp2>
+</div>
+
+<script type="text/babel">
+   let event = new Vue();
+ 
+Vue.component('comp1', {
+    template: `
+        <div>
+            <p>我是第一个组件</p>
+            <input type="text" @keyup="send" v-model="comp1_msg"/>
+        </div>
+    `,
+    data(){
+        return {
+            comp1_msg: ''
+        }
+    },
+    methods: {
+        send(){
+            event.$emit('comp1_send', this.comp1_msg);
+        }
+    }
+});
+ 
+Vue.component('comp2', {
+    template: `
+        <div>
+            <P>我是第二个组件</P>
+            <p>{{comp2_msg}}</p>
+        </div>
+    `,
+    data(){
+        return {
+            comp2_msg: ''
+        }
+    },
+    mounted(){
+        let me = this;
+        event.$on('comp1_send', function(data){
+            me.comp2_msg = data;
+        });
+    }
+});
+ 
+new Vue({
+    el: "#app"
+})
+
+</script> 
+</body>
+</html>

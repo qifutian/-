@@ -1,0 +1,208 @@
+// 库存汇总统计-库存统计
+export const GET_INVENTORY_SUMMARY_DASHBOARD = 'GET_INVENTORY_SUMMARY_DASHBOARD'
+
+// 库存汇总统计-好丽友库存新鲜度状态
+export const GET_INVENTORY_FRESH_STATUS_DASHBOARD = 'GET_INVENTORY_FRESH_STATUS_DASHBOARD'
+
+// 库存汇总统计-好丽友库存新鲜度状态-最近十五天趋势-全部-内销-进口
+export const GET_INVE_IMPORT_FRESH_STATUS_LATELY_DASHBOARD = 'GET_INVE_IMPORT_FRESH_STATUS_LATELY_DASHBOARD'
+
+// 库存汇总统计-好丽友库存健康状态
+export const GET_INVENTORY_HEALTHY_STATUS_DASHBOARD = 'GET_INVENTORY_HEALTHY_STATUS_DASHBOARD'
+
+// 库存汇总统计-好丽友库存健康状态-最近十五天趋势-所有-内销-进口
+export const GET_INVE_HEALTHY_STATUS_LATELY_DASHBOARD = 'GET_INVE_HEALTHY_STATUS_LATELY_DASHBOARD'
+
+// 订单看板库存箱数统计
+export const GET_ORDER_STOCK_DASHBOARD = 'GET_ORDER_STOCK_DASHBOARD'
+
+// 未关闭订单状态数据展示
+export const GET_UNCLOSE_ORDER_DASHBOARD = 'GET_UNCLOSE_ORDER_DASHBOARD'
+
+// 未关闭交货单状态数据展示
+export const GET_UNCLOSE_VDO_DASH_BOARD = 'GET_UNCLOSE_VDO_DASH_BOARD'
+
+// 用户权限用户列表获取
+export const GET_SETTING_USER_LIST = 'GET_SETTING_USER_LIST'
+
+// 用户权限用户-角色列表获取
+export const GET_SETTING_USER_ROLE_LIST = 'GET_SETTING_USER_ROLE_LIST'
+
+// 用户权限用户-职能列表获取
+export const GET_SETTING_USER_FUNC_LIST = 'GET_SETTING_USER_FUNC_LIST'
+
+// 用户权限-用户新增
+export const SAVE_SETTING_ADD_USER = 'SAVE_SETTING_ADD_USER'
+
+// 用户权限-用户编辑
+export const GET_SETTING_EDIT_USER = 'GET_SETTING_EDIT_USER'
+
+// 用户权限-用户禁/启用
+export const GET_SETTING_UP_D_USER = 'GET_SETTING_UP_D_USER'
+
+// 订单中心 - 交货单分页列表
+export const WATCH_ORIONSCM_SAGAS = 'WATCH_ORIONSCM_SAGAS'
+
+// 订单中心 -- 订单查看 --订单列表
+export const LIST_ORDER_DETAIL = 'LIST_ORDER_DETAIL'
+
+// 订单中心 -- 订单详情 -- 订单明细
+export const ORDER_DETAIL_INFO = 'ORDER_DETAIL_INFO'
+
+// 订单中心 -- 交货单查看 -- 发货单明细
+export const PAGE_VDO_SKU_DETAIL = 'PAGE_VDO_SKU_DETAIL'
+
+// 订单中心 -- 订单详情 -- 交货单明细
+export const PAGE_ORDER_VDO_DETAILS = 'PAGE_ORDER_VDO_DETAILS'
+
+// 订单中心 -- 订单明细查看
+export const PAGE_ORDER_WITH_ORDER_DETAIL = 'PAGE_ORDER_WITH_ORDER_DETAIL'
+
+// 订单中心 -- 交货单明细查看
+export const PAGE_VDO_DETAIL = 'PAGE_VDO_DETAIL'
+
+// 好丽友库存 -- 库存状态
+export const LIST_INVENTOTY_DETAIL = 'LIST_INVENTOTY_DETAIL'
+
+// 好丽友库存 -- 库存新鲜度
+export const LIST_INVENTORY_FRESH_DETAIL = 'LIST_INVENTORY_FRESH_DETAIL'
+
+// 经销商库存 -- 库存状态
+export const INVENTORY_DETAIL_LIST = 'INVENTORY_DETAIL_LIST'
+
+// 经销商库存 -- 库存新鲜度
+export const LIST_CUST_iNVENTORY_FRESH_DETAIL = 'LIST_CUST_iNVENTORY_FRESH_DETAIL'
+// 获取add域所有用户
+export const GET_GLOBAL_USER_LIST = 'GET_GLOBAL_USER_LIST'
+
+// 用户权限-新增角色
+export const SAVE_SETTING_ADD_ROLE = 'SAVE_SETTING_ADD_ROLE'
+
+// 用户权限-删除角色
+export const DEL_SETTING_ROLE_LIST = 'DEL_SETTING_ROLE_LIST'
+
+// 用户权限-根据父资源获取页面权限列表（编辑角色）
+export const GET_SETTING_ROLE_BUTTON = 'GET_SETTING_ROLE_BUTTON'
+
+// 用户权限-资源树状列表（编辑角色）
+export const GET_SETTING_ROLE_RESOURCE_TREE = 'GET_SETTING_ROLE_RESOURCE_TREE'
+
+// 用户权限-角色列表（分页，查询）
+export const GET_SETTING_ROLE_LIST = 'GET_SETTING_ROLE_LIST'
+
+// 用户权限-展示角色所有资源详情
+export const GET_SETTING_ROLE_LIST_DETAIL = 'GET_SETTING_ROLE_LIST_DETAIL'
+
+// 用户权限-角色启用/禁用
+export const UP_SETTING_ROLE_STATE = 'UP_SETTING_ROLE_STATE'
+
+// 订单中心 -- 预警关闭
+export const CLOSE_ORDER_WARNING = 'CLOSE_ORDER_WARNING'
+
+// 订单中心 -- 订单加急
+export const ORDER_URGENT = 'ORDER_URGENT'
+
+// 订单中心 -- 订单取消标注
+export const ORDER_CANCEL_TAG = 'ORDER_CANCEL_TAG'
+
+// 订单中心 -- 订单备注
+export const ORDER_REMARK = 'ORDER_REMARK'
+
+// 订单中心 -- 订单改期
+export const ORDER_RESCHEDULE = 'ORDER_RESCHEDULE'
+
+// 订单中心 -- 新鲜度修改
+export const ORDER_DETAIL_FRESHNESS_MODIFY = 'ORDER_DETAIL_FRESHNESS_MODIFY'
+
+// 订单中心 -- 事件历史
+export const EVENT_LIST = 'EVENT_LIST'
+
+// 订单中心 -- 状态历史
+export const STATUS_LIST = 'STATUS_LIST'
+
+// 职能新增/编辑
+export const SAVE_SETTING_ADD_GROUP = 'SAVE_SETTING_ADD_GROUP'
+
+// 职能删除
+export const DEL_SETTING_GROUP_LIST = 'DEL_SETTING_GROUP_LIST'
+
+// 获取职能详情
+export const GET_SETTING_GROUP_LIST_DETAIL = 'GET_SETTING_GROUP_LIST_DETAIL'
+
+// 职能列表（分页，查询）
+export const GET_SETTING_GROUP_LIST = 'GET_SETTING_GROUP_LIST'
+
+// 职能启用/禁用
+export const UP_SETTING_GROUP_STATE = 'UP_SETTING_GROUP_STATE'
+
+// 角色编辑
+export const SAVE_SETTING_ROLE_EDIT = 'SAVE_SETTING_ROLE_EDIT'
+
+// 公共字段获取
+export const GET_SETTING_PUBLIC_FIELDS = 'GET_SETTING_PUBLIC_FIELDS'
+
+// 库存汇总统计-库存统计
+export const GET_INVENTORY_FRESH_DASHBOARD = 'GET_INVENTORY_FRESH_DASHBOARD'
+
+// 获取订单数汇总
+export const GET_FULLFIL_TASK_ORDER_NUMBER = 'GET_FULLFIL_TASK_ORDER_NUMBER'
+
+// 获取订单量汇总
+export const GET_FULLFIL_TASK_ORDER_QTY = 'GET_FULLFIL_TASK_ORDER_QTY'
+
+// 分配任务列表
+export const GET_FULLFIL_TASK_ORDER_LIST = 'GET_FULLFIL_TASK_ORDER_LIST'
+
+// 分配任务统计
+export const GET_FULLFIL_TASK_STATISTICS = 'GET_FULLFIL_TASK_STATISTICS'
+
+// 订单优先级配置-列表
+export const GET_SETTING_ORDER_PER_ORDER_PRIORITY_LIST = 'GET_SETTING_ORDER_PER_ORDER_PRIORITY_LIST'
+
+// 订单优先级配置-编辑
+export const EDIT_SETTING_ORDER_PER_ORDER_PRIORITY = 'EDIT_SETTING_ORDER_PER_ORDER_PRIORITY'
+
+// 调拨优先级配置-列表
+export const GET_SETTING_ORDER_PER_ST_PRIORITY_LIST = 'GET_SETTING_ORDER_PER_ST_PRIORITY_LIST'
+
+// 调拨优先级配置-编辑
+export const EDIT_SETTING_ORDER_PER_ST_PRIORITY = 'EDIT_SETTING_ORDER_PER_ST_PRIORITY'
+
+// 发运规则列表
+export const GET_SETTING_ORDER_PER_CUONT_SHIPPING_LIST = 'GET_SETTING_ORDER_PER_CUONT_SHIPPING_LIST'
+
+// 订单履约信息发运规则列表
+export const EDIT_SETTING_ORDER_PER_CUST_SHIPPING = 'EDIT_SETTING_ORDER_PER_CUST_SHIPPING'
+
+// 客户新鲜度要求列表
+export const GET_SETTING_ORDER_PER_CUST_PA_GRADE_LIST = 'GET_SETTING_ORDER_PER_CUST_PA_GRADE_LIST'
+
+// 客户新鲜度要求编辑
+export const EDIT_SETTING_ORDER_PER_CUST_PA_GRADE = 'EDIT_SETTING_ORDER_PER_CUST_PA_GRADE'
+
+// 新鲜度等级列表
+export const GET_SETTING_ORDER_PER_PA_GRADE_LIST = 'GET_SETTING_ORDER_PER_PA_GRADE_LIST'
+
+// 新鲜度等级保存
+export const EDIT_SETTING_ORDER_PER_PA_GRADE = 'EDIT_SETTING_ORDER_PER_PA_GRADE'
+
+// 订单履约基础配置-信息
+export const GET_SETTING_ORDER_PER_CONF_LIST = 'GET_SETTING_ORDER_PER_CONF_LIST'
+
+// 订单履约基础配置-保存
+export const SAVE_SETTING_ORDER_PER_PA_CONF = 'SAVE_SETTING_ORDER_PER_PA_CONF'
+
+// 订单履约任务-撤销
+export const CANCEL_FULLFIL_TASK_ITEM ='CANCEL_FULLFIL_TASK_ITEM'
+
+// 上传下载中心 - 上传
+export const GET_DATACENTER_UPLOAD_TASK ='GET_DATACENTER_UPLOAD_TASK'
+
+export const GET_TEMPLATE_ADDRESS ='GET_TEMPLATE_ADDRESS'
+
+
+// 后台管理 - 数据接口日志 - 日志列表分页
+export const GET_LOGS_DATA_LIST ='GET_LOGS_DATA_LIST'
+
+// 后台管理 - 数据接口日志 - 日志错误详情
+export const GET_LOGS_DETAIL_LIST ='GET_LOGS_DETAIL_LIST'

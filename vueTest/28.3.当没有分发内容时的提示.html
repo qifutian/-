@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue的render方法说明</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <children>
+        <span>【12345】</span>
+        <!--上面这行不会显示-->
+    </children>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        components: {
+            children: {    //这个无返回值，不会继续派发
+                template: "<div><slot name='first'><button>【如果没有内容则显示我1】</button></slot>为了明确作用范围，<slot name='last'><button>【如果没有内容则显示我2】</button></slot>所以使用button标签</div>"
+            }
+        }
+    });
+</script>
+</body>
+</html>

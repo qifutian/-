@@ -1,0 +1,28 @@
+JS常见的兼容性问题汇总
+1> 滚动条：
+document.documentElement.scrollTop || document.body.scrollTop
+1
+2> 获取样式兼容
+function getStyle(dom, styleName){
+	return dom.currentStyle? dom.currentStyle[styleName] : getComputedStyle(dom)[styleName];
+}
+
+3> 网页可视区域兼容
+window.innerHeight || document.documentElement.clientHeight
+window.innerWidth || document.documentElement.clientWidth
+
+4） 事件对象兼容
+evt = evt || window.event;
+
+5） 阻止事件冒泡兼容
+event.stopPropagation ? event.stopPropagation() : event.cancelBubble=true; 
+
+6）阻止默认行为兼容
+evt.preventDefault?evt.preventDefault():evt.returnValue=false;
+
+7）事件监听兼容
+if(document.all){
+    dom.attactEvent(“onclick”, fn);
+} else {
+    dom.addEventListener(“click”, fn);
+}

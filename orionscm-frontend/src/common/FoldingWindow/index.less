@@ -1,0 +1,84 @@
+@import "src/less/_common.less";
+.system-folding-window{
+    .ant-collapse > .ant-collapse-item > .ant-collapse-header{
+        padding: 6px 10px;
+        .system-folding-window-left{
+            .modal-title{
+                font-size: 14px;
+                font-weight: 500;
+                color: #464444;
+                line-height: 24px;
+                text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.08);
+            }
+            .edit-title{
+                margin-left: 20px;
+                font-size: 12px;
+                font-weight: 600;
+                color: #527FFB;
+                line-height: 24px;
+                text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.08);
+                .anticon{
+                    margin:0 5px;
+                }
+            }
+            .additional-assembly{
+                margin-left: 22px;
+                .ant-select{
+                    width:120px;
+                    .ant-select-selector{
+                        height: 24px;
+                        .ant-select-selection-search-input{
+                            height: 22px;
+                        }
+                        .ant-select-selection-item{
+                            line-height: 22px;
+                        }
+                    }
+                }
+            }
+        }
+        .common-btn-white-sm{
+            width: auto;
+            margin-right: 10px;
+        }
+        .common-btn-blue-sm{
+            width: auto;
+            margin-right: 10px;
+        }
+        .date-field{
+            font-size: 12px;
+            font-weight: 400;
+            color: #807F7F;
+            margin:0 11px;
+        }
+        .system-folding-window-right{
+            height: 24px;
+
+            .default-btn-small{
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 0;
+                border-color: @common-btn-blue;
+                color: @common-btn-blue;
+                &:hover{
+                    border-color: #0B72EC;
+                    background: #DFEBFF;
+                    color: #0B72EC;
+                }
+                &:focus{
+                    border-color: #0B72EC;
+                    color: #0B72EC;
+                }
+            }
+        }
+    }
+    .ant-collapse > .ant-collapse-item >.ant-collapse-content {
+        &>.ant-collapse-content-box{
+            .ant-select-single .ant-select-selector .ant-select-selection-placeholder{
+                line-height: 26px;
+            }
+            padding: 15px 28px 5px 28px;
+        }
+    }
+}

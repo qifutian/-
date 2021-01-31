@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO</title>
+    <script src="vue.min.js"></script>
+    <style type="text/css">
+        .white{
+            background-color: white
+        }
+        .black{
+            background-color: black
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="app">
+    <div v-if="html">
+        {{val}}
+    </div>
+    <button onclick="test()">消失上一行</button>
+</div>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            html: "abc",
+            val: "11"
+        }
+    })
+    function test() {
+        vm.html = "";
+    }
+</script>
+
+</body>
+</html>

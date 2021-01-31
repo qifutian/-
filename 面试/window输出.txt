@@ -1,0 +1,13 @@
+var test_b = 11
+			console.log(window)
+			if(!(test_a in window)){
+				console.log(window)
+				var test_a = 11
+
+			}else{
+				test_b++
+			}
+			console.log(test_a) //Undefined
+			console.log(test_b) //12
+			//全局的声明的变量都会成为window的属性（全局声明的funtion都会成为window的方法）
+			//test_a test_b 都是属于window作用域下  test_a in window 为true 取反的话此时为false 走else分支

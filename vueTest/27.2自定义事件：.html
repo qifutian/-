@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue的render方法说明</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+     <div id="app">
+    父组件：
+    <button>点击向下传播broadcast</button>
+    <br/>
+    子组件1：
+    <!--绑定写在这里，可以多个绑定同一个，或者不同绑定不同的，但不能一个绑定多个-->
+    <children v-on:test="parent" @test2="another"></children>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            val: 1
+        },
+        methods: {
+            parent: function (arg) {
+                console.log(arg);
+                console.log("the first method with test event");
+            },
+            another: function () {
+                console.log("another method");
+            }
+        },
+        components: {
+            children: {    //这个无返回值，不会继续派发
+                props: ['test'],
+                template: "<button @click='childClick'>children1</button></br><button @click='childClick2'>children1</button>",
+                methods: {
+                    childClick: function () {
+                        this.$emit("test", 'the argument for dispatch');
+                    },
+                    childClick2: function () {
+                        this.$emit("test2");
+                    }
+                },
+                events: {
+                    test: function () {
+                        console.log("test");
+                    },
+                    test2: function () {
+                        console.log("test2");
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+
+</body>
+</html>

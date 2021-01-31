@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO</title>
+    <script src="vue.min.js"></script>
+    <style type="text/css">
+        .green{
+            background-color: green
+        }
+        .red{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div v-bind:class="{'green':a,'red':b}">背景颜色</div>
+    <button @click="change">变色</button>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            a: true,
+            b: false
+        },
+        methods: {
+            change: function () {
+                this.a = !this.a;
+                this.b = !this.b;
+            }
+        }
+    })
+</script> 
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>命名路由</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+  <h1>Hello App!</h1>
+  <p>
+    <!-- 使用router-link 组件来导航 -->
+    <!-- 通过传入 'to' 属性指定链接 -->
+    <!-- <router-link>默认会渲染成一个a标签 -->
+    <router-link :to="{name:'user',params:{id:123}}">GO TO FOO</router-link>
+    <router-link :to="{name:'user',params:{id:456}}">GO TO BAR</router-link>
+  </p>
+  <!-- 路由出口 -->
+  <!-- 路由匹配到的组件将会被渲染到这里 -->
+  <router-view></router-view>
+</div>
+<script>
+  // 1、定义组件
+  const Foo = {template:'<div>foo</div>'};
+  const Bar = {template:'<div>bar</div>'};
+  const User = {
+    template:'<div>User {{$route.params.id}}</div>',
+  }
+  // 2、定义路由
+  // 每一个路由映射一个组件
+
+
+  // 3、创建router实例，然后传'routes'配置
+  const router = new VueRouter({
+    routes:[
+      {
+        path:'/user/:id',
+        name:'user',
+        component: User
+      }
+    ]
+  });
+
+  // 4、创建和挂载根实例
+  const app = new Vue({
+    router
+  }).$mount('#app');
+</script>
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO</title>
+    <script src="vue.min.js"></script>
+    <style type="text/css">
+        .white{
+            background-color: white
+        }
+        .black{
+            background-color: black
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+<div id="app">
+    <div v-bind:class="BC">
+        背景颜色变化
+    </div>
+    <button onclick="test()">消失上一行</button>
+</div>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            BC:"black"
+        }
+    })
+    function test() {
+        vm.BC = "white";
+    }
+</script>
+
+</body>
+</html>

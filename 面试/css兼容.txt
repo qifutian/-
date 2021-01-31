@@ -1,0 +1,51 @@
+兼容性处理要点
+1、DOCTYPE 影响 CSS 处理
+
+2、FF: 设置 padding 后， div 会增加 height 和 width， 但 IE 不会， 故需要用 !important 多设一个 height 和 width
+
+3、FF: 支持 !important， IE 则忽略， 可用 !important 为 FF 特别设置样式
+
+4、div 的垂直居中问题: vertical-align:middle; 将行距增加到和整个DIV一样高 line-height:200px; 然后插入文字，就垂直居中了。缺点是要控制内容不要换行
+
+5、在mozilla firefox和IE中的BOX模型解释不一致导致相差2px解决方法：
+
+div{margin:30px!important;margin:28px;}
+
+注意这两个margin的顺序一定不能写反，!important这个属性IE不能识别，但别的浏览器可以识别。所以在IE下其实解释成这样：
+
+div{maring:30px;margin:28px}
+
+重复定义的话按照最后一个来执行，所以不可以只写margin:XXpx!important;
+
+
+
+1、ul和ol列表缩进问题
+
+消除ul、ol等列表的缩进时，样式应写成：list-style:none;margin:0px;padding:0px;
+其中margin属性对IE有效，padding属性对FireFox有效。
+
+2、CSS透明问题
+
+IE：filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)。
+FF：opacity:0.6。
+[注] 最好两个都写，并将opacity属性放在下面。
+
+3、CSS圆角问题
+
+IE：ie7以下版本不支持圆角。
+FF： -moz-border-radius:4px，或者-moz-border-radius-topleft:4px;-moz- border- radius-topright:4px;-moz-border-radius-bottomleft:4px;-moz- border- radius- bottomright:4px;。
+
+4、cursor:hand VS cursor:pointer
+
+问题说明：firefox不支持hand，但ie支持pointer ，两者都是手形指示。
+解决方法：统一使用pointer。
+
+5、字体大小定义不同
+
+对字体大小small的定义不同，Firefox中为13px，而IE中为16px，差别挺大。
+
+解决方法：使用指定的字体大小如14px。
+
+6、CSS双线凹凸边框
+IE：border:2px outset;。
+FF： -moz-border-top-colors: #d4d0c8 white;-moz-border-left-colors: #d4d0c8 white;-moz-border-right-colors:#404040 #808080;-moz-border-bottom-colors:#404040 #808080;

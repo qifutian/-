@@ -1,0 +1,230 @@
+实现 new
+先用文字描述一下 new 的实现过程
+新定义一个 json 对象
+对象 继承 构造函数的原型链
+将构造函数的 this 指向这个对象
+根据构造函数的返回值类型返回结果，
+  function myNew(fn) {
+    let obj = {}
+    obj = Object.create(fn.prototype) 
+    let args = Array.prototype.slice.call(arguments, 1) // 获取除去fn之外的参数
+    let result = fn.call(obj, ...args)
+    return typeof result === 'object' ? result : obj;
+  }
+  function foo() {
+    this.name = 'ciel'
+    this.arg = arguments[0]
+  }
+  foo.prototype.callName = function() {
+    console.log(this.name)
+  }
+  // 测试
+  let test = myNew(foo, 'hhh', '123', 'saf')
+  test.callName()
+  console.log(test.arg)
+复制代码
+这里解释一下 return typeof result === 'object' ? result : obj; 这句代码：
+在JavaScript构造函数中：如果return值类型，那么对构造函数没有影响，实例化对象返回空对象；如果return引用类型（数组，函数，对象），那么实例化对象就会返回该引用类型; 可以测试以下两个构造函数在 new 之后返回的值就可以理解这句话的意思了
+ function foo() {
+   this.name = 'ciel'
+   return function() {
+
+   }
+ }
+ new foo() //  fn(){}
+ function bar() {
+   this.name = 'ciel'
+   return 1
+ }
+ new bar() // {name: ciel}
+复制代码
+实现 call
+先看看伪代码是如何使用 myCall 的 fn.myCall(obj, args) 分析下代码应该怎么实现
+myCall 应该挂在 Function.prototype 上
+fn 的 this 指向 为 obj
+myCall 的 args 透传给 fn
+Function.prototype.myCall = function(target, ...args) {
+  // this 指向调用 myCall函数的对象
+  if (typeof this !== "function") {
+    throw new TypeError("not a function")
+  }
+  target = target || window
+  target.fn = this // 隐式绑定，改变构造函数的调用者间接改变 this 指向
+  let result = target.fn(...args)
+  return result
+};
+// 测试
+let obj = { name: 123 }
+function foo(...args) {
+  console.log(this.name, args)
+}
+let s = foo.myCall(obj, '111', '222')
+复制代码
+实现 apply
+回忆一下 apply 与 call 的区别： apply 参数要为数组。 其他和 call 实现一样
+Function.prototype.myApply = function(target) {
+  if (typeof this !== "function") {
+    throw new TypeError("not a function");
+  }
+  if (!Array.isArray(arguments[1])) {
+    throw new Error('arg not a array')
+  }
+  target = target || window
+  target.fn = this
+  let args = arguments[1]
+  let result = target.fn(args)
+  return result
+};
+
+const obj = { name: 123 };
+function foo(...args) {
+  console.log(this.name, args);
+}
+foo.prototype.name = 123;
+const s1 = [1, 2, 3, 4, 5];
+const s = foo.myApply(obj,s1);
+复制代码
+实现 bind
+与 call 与 apply 的区别： fn.bind(obj) 不会立即执行 fn 函数，而 call, apply 会立即执行
+bind 返回的新函数可以普通调用也可以构造函数方式调用，当为构造函数时，this 是指向实例的
+bind() 方法的参数具有一个特性，就是函数柯里化，简单来说就是保留一个参数的位置，再第二次传参的时候自动把参数存入到这个位置中
+Function.prototype.mybind = function(thisArg) {
+  if (typeof this !== 'function') {
+    throw TypeError("Bind must be called on a function");
+  }
+  const args = Array.prototype.slice.call(arguments, 1),
+    self = this,
+    // 构建一个干净的函数，用于保存原函数的原型
+    nop = function() {},
+    // 绑定的函数
+    bound = function() {
+      // this instanceof nop, 判断是否使用 new 来调用 bound
+      // 如果是 new 来调用的话，this的指向就是其实例，
+      // 如果不是 new 调用的话，就改变 this 指向到指定的对象 o
+      return self.apply(
+        this instanceof nop ? this : thisArg,
+        args.concat(Array.prototype.slice.call(arguments)) 
+      );
+    };
+  // 箭头函数没有 prototype，箭头函数this永远指向它所在的作用域
+  if (this.prototype) {
+    nop.prototype = this.prototype;
+  }
+  // 修改绑定函数的原型指向
+  bound.prototype = new nop();
+  return bound;
+}
+
+// 测试
+
+ let obj = { name: "ciel" }
+    function test(x,y,z) {
+      console.log(this.name) // ciel
+      console.log(x+y+z) // 6
+    }
+    let Bound = test.mybind(obj, 1, 2)
+    Bound(3) // 6
+    new Bound() // bound {}
+复制代码
+实现 reduce
+arr.reduce((res,cur, index, arr) => res+cur, 0)
+参数： 一个回调函数，一个初始化参数 (非必须)
+回调函数参数有 4 个值(res: 代表累加值，cur: 目前值，index: 第几个，arr 调用 reduce 的数组)
+整体返回 res 累加值
+Array.prototype.myReduce = function(cb, initValue) {
+  if (!Array.isArray(this)) {
+    throw new TypeError("not a array")
+  }
+  // 数组为空，并且有初始值，报错
+  if (this.length === 0 && arguments.length < 2) {
+    throw new TypeError('Reduce of empty array with no initial value')
+  }
+  let arr = this
+  let res = null
+  // 判断有没有初始值
+  if (arguments.length > 1) {
+    res = initValue
+  } else {
+    res = arr.splice(0,1)[0] //没有就取第一个值
+  }
+  arr.forEach((item, index) => {
+    res = cb(res, item, index, arr) // cb 每次执行完都会返回一个新的 res值，覆盖之前的 res
+  })
+  return res
+};
+
+// 测试结果
+let arr = [1,2,3,4]
+let result = arr.myReduce((res, cur) => {
+  return res + cur
+})
+console.log(result) // 10
+复制代码
+tip: 平时在工作中 处理数据的时候经常会用到 reduce, 实现一个数据处理原本多次遍历，由 reduce 实现可能就只需要遍历一次
+实现 Currying
+什么是柯里化？ 将复杂问题分解为多个可编程的小问题，实现多参函数提供了一个递归降解的实现思路——把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数 结合一个例子,实现如下效果
+sum(1,2) // 3
+sum(1,2)(3) // 6
+sum(4,5)(10) // 19
+复制代码
+实现代码
+function sum() {
+  let allArgs = Array.prototype.slice.call(arguments);
+  let add = function(){
+    allArgs.push(...arguments) // 每次调用 sum 函数都收集参数
+    return add
+  }
+  // 重写 toString 方法，函数执行的时候会自动调用toString()方法，计算返回所有参数结果
+  add.toString = function () {
+    return allArgs.reduce((a, b) => a+b)
+  }
+  return add
+}
+
+复制代码
+测试结果
+
+实现防抖
+防抖：触发高频事件后 n 秒内函数只会执行一次，如果 n 秒内高频事件再次被触发，则重新计算时间（取最后一次） 思路：每次触发前都取消之前的延时调用方法
+  function debounce(fn, delay) {
+   let timer = null
+   return function() {
+     let self = this // 这获取 this 是因为 debounce() 返回的是内部函数，在这才能捕获到 this。
+     let args = Array.prototype.slice.call(arguments)
+     if (timer) clearTimeout(timer) // 取消之前的 timer
+     timer = setTimeout(function () {
+       fn.call(self, ...args) // 防止 this 指向改变，确保上下文为当前的this，传递参数
+     }, delay)
+   }
+ }
+ function testFn() {
+  console.log('被点击了', this)
+ }
+ // 测试
+document.addEventListener('click', debounce(testFn, 1000)) 
+复制代码
+实现节流
+节流：高频事件触发，但在 n 秒内只会执行一次，所以节流会稀释函数的执行频率 思路：每次触发事件时都判断当前是否有等待执行的延时函数，需要一个标记
+function throtting(fn, delay) {
+   let timer = null
+   let isCancel = false
+   return function() {
+     if (isCancel) return
+     isCancel = true
+     clearTimeout(timer)
+     let self = this;
+     let args = Array.prototype.slice.call(arguments)
+     if (timer) clearTimeout(timer)
+     timer = setTimeout(function () {
+       fn.call(self, ...args)
+       isCancel = false
+     }, delay)
+   }
+ }
+ function testFn() {
+  console.log('输入了', this)
+ }
+document.addEventListener('input', throtting(testFn, 1000)) 
+复制代码
+在一定时间内只执行一次，判断当前是否有等待执行的延时函数，有就返回
+

@@ -1,0 +1,196 @@
+.control-tower-stock-board{
+    .control-tower-stock-board-content{
+        .ant-space-vertical{
+            width: 100%;
+        }
+        padding-top: 10px;
+        .inventory-status{
+            background-color: #FFFFFF;
+            padding: 10px 20px 15px 20px;
+            border-left: 1px solid #E7E7E7;
+            border-right: 1px solid #E7E7E7;
+            border-top: 1px solid #E7E7E7;
+            .inventory-status-body{
+               .inventory-status-title{
+                font-size: 16px;
+                font-weight: 600;
+                color: #4C4949;
+                line-height: 20px;
+                } 
+                .freshness-statistics-title{
+                    padding-top: 20px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #464444;
+                    .freshness-statistics-subtitle{
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: rgba(0, 0, 0, 0.45);
+                        margin-left: 12px;
+                    }
+                }
+            }
+        }
+        .freshness-statistics{
+            background-color: #FFFFFF;
+            padding: 15px 20px;
+            border-left: 1px solid #E7E7E7;
+            border-right: 1px solid #E7E7E7;
+            .freshness-statistics-body{
+                padding-bottom: 10px;
+                border-bottom:1px solid rgba(0,0,0,.4);
+            }
+        }
+        .health-status{
+            background-color: #FFFFFF;
+            padding: 20px;
+            .freshness-statistics-body{
+                .health-status-title{
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #464444;
+                    .health-status-subtitle{
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #949494;
+                        margin-left: 14px;
+                    }
+                }
+            }
+        }
+        .freshness-status{
+            background-color: #FFFFFF;
+            padding: 20px;
+            .freshness-status-body{
+                .freshness-status-title{
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #464444;
+                    .freshness-status-subtitle{
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #949494;
+                        margin-left: 14px;
+                    }
+                }
+            }
+        }
+    }
+    .domestic-sales-import{
+        padding-top:5px;
+        padding-bottom:20px;
+    }
+    .control-tower-inventory-statistics-pd{
+        padding-top:20px;
+    }
+    .control-tower-inventory-histogram{
+        padding-top: 10px;
+        .ant-col{
+            font-size: 12px;
+            font-weight: 400;
+            color: #8C8C8C;
+            line-height: 26px;
+            @color: "4787F1", "7CD6A9", "F8B379";
+            each(@color, {
+                @classValue: e(@value);
+                .legend-icon-@{classValue} {
+                    display: inline-block;
+                    width: 10px;
+                    height: 10px;
+                    -moz-border-radius: 5px;
+                    -webkit-border-radius: 5px;
+                    border-radius: 5px;
+                    margin-right: 5px;
+                    background-color: ~"#@{classValue}"; 
+                }
+            });
+        }
+        
+    }
+    .control-tower-inventory-quantity{
+        padding-top: 20px;
+        .inventory-quantity-title{
+            font-size: 14px;
+            font-weight: 500;
+            color: #464444;
+        }
+        .inventory-quantity-body{
+            padding: 0 10px;
+            .inventory-quantity{
+                font-size: 12px;
+                font-weight: 600;
+                color: #464444;
+                line-height: 30px;
+            }
+            .inventory-quantity-item{
+                .title{
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: #807F7F;
+                    line-height: 30px;
+                }
+                .num{
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #5C5C5C;
+                    line-height: 30px;
+                    text-align: right;
+                }
+            }
+        }
+    }
+    .control-tower-statistical-quantity{
+        padding: 20px 0;
+        .statistical-quantity-item:not(:first-child){
+            border-left: 1px solid rgba(0,0,0,.15);
+            padding-left: 20px;
+        }
+        .statistical-quantity-title{
+            font-size: 14px;
+            font-weight: 500;
+            color: #464444;
+            text-align: right;
+            padding-bottom: 10px;
+            @color: "F54848", "F5AF7B", "5AC085";
+            each(@color, {
+                @classValue: e(@value);
+                .statistical-quantity-title-icon-@{classValue} {
+                    display: inline-block;
+                    width: 14px;
+                    height: 14px;
+                    border-radius:7px;
+                    margin-right: 5px;
+                    margin-bottom: -2px;
+                    background-color: ~"#@{classValue}"; 
+                    background-image: radial-gradient(~"#@{classValue}", rgb(255, 255, 255));
+                }
+            });
+        }
+        .statistical-quantity-lable{
+            text-align: right;
+            font-size: 12px;
+            font-weight: 400;
+            color: #807F7F;
+            line-height: 20px;
+        }
+        .statistical-quantity-control{
+            font-size: 16px;
+            font-weight: 600;
+            color: #527FFB;
+            line-height: 20px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+    .BrokenLineStateDiagram-page{
+        .stockTitle{
+            font-weight: 500;
+            line-height: 20px;
+            padding: 8px 0;
+            color: rgba(70,68,68,1);
+        }
+        .BrokenLineStateDiagram-body{
+            border-top: 1px solid #E7E7E7;
+        }
+    }  
+}

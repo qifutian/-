@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+   {{html?html:val}}
+</div>
+<script>
+  var vm=new Vue({
+    el:"#app",
+    data:{
+        html:"",
+        val:"11"
+    }
+  })
+</script>
+
+</body>
+</html>

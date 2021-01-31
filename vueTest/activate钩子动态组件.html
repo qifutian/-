@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue的render方法说明</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="toshow">点击让子组件显示</button>
+    <component v-bind:is="which_to_show"></component>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            which_to_show: "first"
+        },
+        methods: {
+            toshow: function () {   //切换组件显示
+                var arr = ["first", "second", "third", ""];
+                var index = arr.indexOf(this.which_to_show);
+                if (index < 3) {
+                    this.which_to_show = arr[index + 1];
+                } else {
+                    this.which_to_show = arr[0];
+                }
+                console.log(this.$children);
+            }
+        },
+        components: {
+            first: { //第一个子组件
+                template: "<div>这里是子组件1</div>"
+            },
+            second: { //第二个子组件
+                template: "<div>这里是子组件2</div>"
+            },
+            third: { //第三个子组件
+                template: "<div>这里是子组件3</div>"
+            },
+        }
+    });
+</script>
+
+</body>
+</html>

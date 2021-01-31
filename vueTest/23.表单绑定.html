@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <input type="text" v-model="text"/>
+    <div>{{text}}</div>
+    <div>——————————————</div>
+    <textarea style="width:200px;height:100px;" v-model="textarea"></textarea>
+    <div>{{textarea}}</div>
+    <div>——————————————</div>
+    <label><input type="checkbox" v-model="checkbox"/>左边选中右边则为true：{{checkbox}}</label>
+    <div>——————————————</div>
+    <label><input type="checkbox" value="firstCheckbox" v-model="checkboxes">firstCheckbox</label><br/>
+    <label><input type="checkbox" value="secondCheckbox" v-model="checkboxes">secondCheckbox</label><br/>
+    <label><input type="checkbox" value="thirdCheckbox" v-model="checkboxes">thirdCheckbox</label><br/>
+    <div>以上选中的value情况为：{{checkboxes}}</div>
+    <div>以上选中的value情况为（以json格式显示，这里使用了json过滤器）：{{checkboxes|json}}</div>
+    <div>——————————————</div>
+    <label><input type="radio" value="A" v-model="radio"/>value = A</label><br>
+    <label><input type="radio" value="B" v-model="radio"/>value = B</label><br>
+    <div>{{radio}}</div>
+    <div>注意，这里的v-model的值应该被注册到data里面，否则会红字警告（事实上，所有的都应该也这么做）</div>
+    <div>——————————————</div>
+    <select v-model="select">
+        <option>默认值，option不设value</option>
+        <option value="B">value的值设为B</option>
+        <option selected value="C">默认选择这个，value设为C</option>
+    </select>
+    <div>{{select}}</div>
+    <div>同样，这里不注册也会被报错</div>
+    <div>——————————————</div>
+    <div>以下是select的多选，按住ctrl可以连续选，按住shift选择区间</div>
+    <select style="width:200px;height:100px;overflow: hidden;" v-model="multiple" multiple>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+    </select>
+    <div>多选选中的值是：{{multiple}}</div>
+    <div>注意，这个多选select框是默认带y轴的滚动条的</div>
+    <div>——————————————</div>
+    <div>动态渲染，checkbox和多选select框是互相影响的</div>
+    <label><input type="checkbox" value="A" v-model="Dynamic">A</label><br/>
+    <label><input type="checkbox" value="B" v-model="Dynamic">B</label><br/>
+    <label><input type="checkbox" value="C" v-model="Dynamic">C</label><br/>
+    <select style="width:200px;height:100px;overflow: hidden;" v-model="Dynamic" multiple>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+    </select>
+    <div>选中情况是：{{Dynamic}}</div>
+    <div>——————————————</div>
+    <div>选中和选中的值自定义的checkbox</div>
+    <label><input type="checkbox" v-bind:true-value="differentValues.t" v-bind:false-value="differentValues.f"
+                  v-model="different">true/false</label><br/>
+    <div>different value: {{different}}</div>
+    <div>注意，以上不能像普通checkbox那么样，用一个数组作为多个checkbox的v-model的变量，且其值是绑定与vm实例的某个属性；
+        因此，不能在v-bind里的值是一个字符串，但可以是一个对象，例如{a:1}这样（当然，这个时候显示的值也是一个对象了）
+    </div>
+    <div>——————————————</div>
+    <div>自定义之的radio</div>
+    <label><input type="radio" v-bind:value="text" v-model="customize"/>值为1</label>
+    <label><input type="radio" v-bind:value="textarea" v-model="customize"/>值为1</label>
+    <div>{{customize}}</div>
+    <div>同样，值可以是vm的一个属性或者是一个对象，另外，同样有效的还有select。（主要就这三个有选中状态，除此之外虽然例如Date类型也有选中，但是意义不大）</div>
+    <div>——————————————</div>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            text: "默认有输入内容",
+            textarea: "这里是多行文字\n第二行，\\n是换行符，但在字符串里显示为空格",
+            // checkboxes: [],
+            radio: "",
+            select: "",
+            multiple: "",
+            Dynamic: {},
+            different: "",
+            differentValues: {
+                t: "true",
+                f: "false"
+            },
+            customize: ''
+        }
+    })
+</script>
+
+</body>
+</html>
